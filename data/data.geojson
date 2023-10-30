@@ -1,0 +1,84 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Title": "Ethopia",
+        "Description": "<p> talk about legend of coffee discovery<\\p>",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1280px-Roasted_coffee_beans.jpg"
+      },
+      "geometry": {
+        "coordinates": [
+          35.667067,
+          7.541619
+        ],
+        "type": "Point"
+      },
+      "id": "708a88686a9b2672e7df0621ff755c47"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Title": "Sumatra",
+        "Description": "<p>Dark, earthy<\\p>",
+        "image": ""
+      },
+      "geometry": {
+        "coordinates": [
+          98.586237,
+          2.291067
+        ],
+        "type": "Point"
+      },
+      "id": "82050977ef1f4368b5e82d666b742f8a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Title": "Hawaii",
+        "Description": "<p>Talk about Kona coffee<\\p>",
+        "image": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -155.949547,
+          19.635263
+        ],
+        "type": "Point"
+      },
+      "id": "b4f87a97cb390b3ccd3e694d2b4c6c93"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Title": "Brazil",
+        "Description": "<p>Low acidity, sweet, nutty. Largest producer of coffee<\\p>"
+      },
+      "geometry": {
+        "coordinates": [
+          -47.284696,
+          -21.438048
+        ],
+        "type": "Point"
+      },
+      "id": "d6fad047d3ae957cdba0fc81f085470d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Title": "Costa Rica",
+        "Description": "<p>Clean, bright, well-balanced coffee<\\p>",
+        "image": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -83.57731,
+          9.24299
+        ],
+        "type": "Point"
+      },
+      "id": "ea51c7a585e0a29aaa9ee5ef1e073997"
+    }
+  ],
+  "type": "FeatureCollection"
+}
