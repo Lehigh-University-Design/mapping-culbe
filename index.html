@@ -58,7 +58,7 @@
                     style: 'mapbox://styles/culbe/clod8blvw000401pd6tlsfcxt', // style URL
                     interactive: false,
                     center: [31.134799, 29.975990], // starting position [lng, lat]
-                    zoom: 5, // starting zoom
+                    zoom: 2, // starting zoom
                     bearing: 0,
                     pitch: 0
                 });
@@ -86,8 +86,6 @@
                 map.scrollZoom.disable();
 
                 for (const item in data.features) {
-
-                    //console.log(`${data}: ${data.features[item].id}`);
                     const p = data.features[item];
 
                     let div = document.createElement('div');
@@ -96,23 +94,25 @@
                     div.setAttribute("data-step", p.id);
                     div.setAttribute("data-long", p.geometry.coordinates[0]);
                     div.setAttribute("data-lat", p.geometry.coordinates[1]);
-                    //var pid = item
 
                     // header
                     if(p.properties.Title) {
                         var header = document.createElement("h2");
-                        //var node = document.createTextNode("Step "+pid);
                         var node = document.createTextNode(p.properties.Title);
                         header.appendChild(node);
                         div.appendChild(header);
                     }
 
                     // image
-                    if(p.properties.Image) {
+                    if(p.properties.image) {
                         var img = document.createElement("img");
-                        img.src = p.properties.Image;
+                        img.src = p.properties.image;
                         div.appendChild(img);
                     }
+
+                    // var side_img = document.createElement("img");
+                    // side_img.src = data/data.geojson;
+                    // side_img.setAttribute("class", "")
 
                     // description
                     if(p.properties.Description) {
@@ -127,7 +127,10 @@
 
                 }
 
-                //console.log(data.features);
+                //TODO maybe remove for last-shild css??
+                let div = document.createElement('div');
+                div.setAttribute("class", "article-footer");
+                document.getElementById("article_container").appendChild(div);
 
                 // using d3 for convenience
                 var main = d3.select("main");
@@ -142,7 +145,7 @@
                 // generic window resize listener event
                 function handleResize() {
                     // 1. update height of step elements
-                    var stepH = Math.floor(window.innerHeight * 0.75);
+                    var stepH = Math.floor(window.innerHeight * 1.25);
                     step.style("height", stepH + "px");
 
                     var figureHeight = window.innerHeight;
@@ -158,13 +161,10 @@
 
                 // scrollama event handlers
                 function handleStepEnter(response) {
-                    console.log(response);
-                    //response = { element, direction, index }
-
-                    //console.log(response.element.dataset.long)
-
                     map.flyTo({
                         center: [response.element.dataset.long, response.element.dataset.lat],
+                        zoom: 9,
+                        offset: [100,0],
                         essential: true // this animation is considered essential with respect to prefers-reduced-motion
                     });
 
@@ -179,7 +179,6 @@
 
 
                 function init() {
-
 
                     // 1. force a resize on load to ensure proper dimensions are sent to scrollama
                     handleResize();

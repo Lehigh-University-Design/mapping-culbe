@@ -1,9 +1,13 @@
+:root {
+  --coffee-brown: #3f1515;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    color: #3f1515;
-    /* color: #f00000; */
+    color: var(--coffee-brown);
     font-size: 24px;
     min-height: 1280px;
+    overflow-x: hidden;
   }
 
   p,
@@ -57,9 +61,8 @@ a:hover {
 
 article {
   position: relative;
-  padding: 0;
-  max-width: 20rem;
-  margin: 0 auto;
+  width: 100vw;
+  margin: 0 0;
 }
 
 figure {
@@ -84,9 +87,10 @@ figure {
 }
 
 .step {
-  margin: 0 auto 2rem auto;
+  margin: 0 0 4rem 0;
+  /* width: 40vw; */
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
 }
 
 .step:last-child {
@@ -94,15 +98,23 @@ figure {
 }
 
 .step.is-active h2 {
-  background-color: #000000;
+  background-color: var(--coffee-brown);
   color: #ffffff;
 }
 
+.article-footer {
+  margin: 0 auto 4rem auto;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0); /* transparent */
+  height: 150px
+}
+
 .step h2 {
-  padding: 1em;
+  width: 30vw;
+  padding: 0.5em;
   font-size: 1.25em;
   background-color: #fff;
-  color: #000000;
+  color: var(--coffee-brown);
 }
 
 .step img {
@@ -113,7 +125,7 @@ figure {
 
 .step .description {
   color: #000000;
-  margin: 1em;
+  padding: 1em;
   font-size: 1em;
 }
 

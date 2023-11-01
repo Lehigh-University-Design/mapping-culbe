@@ -4,7 +4,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Ethopia",
-        "Description": "<p> talk about legend of coffee discovery<\\p>",
+        "Description": "<p> talk about legend of coffee discovery</p>",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1280px-Roasted_coffee_beans.jpg"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Sumatra",
-        "Description": "<p>Dark, earthy<\\p>",
+        "Description": "<p>Dark, earthy</p>",
         "image": ""
       },
       "geometry": {
@@ -36,7 +36,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Hawaii",
-        "Description": "<p>Talk about Kona coffee<\\p>",
+        "Description": "<p>Talk about Kona coffee</p>",
         "image": ""
       },
       "geometry": {
@@ -52,7 +52,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Brazil",
-        "Description": "<p>Low acidity, sweet, nutty. Largest producer of coffee<\\p>"
+        "Description": "<p>Low acidity, sweet, nutty. Largest producer of coffee</p>"
       },
       "geometry": {
         "coordinates": [
@@ -67,7 +67,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Costa Rica",
-        "Description": "<p>Clean, bright, well-balanced coffee<\\p>",
+        "Description": "<p>Clean, bright, well-balanced coffee</p>",
         "image": ""
       },
       "geometry": {
