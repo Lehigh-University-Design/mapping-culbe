@@ -14,6 +14,7 @@
         ],
         "type": "Point"
       },
+      "zoom": 5,
       "id": "708a88686a9b2672e7df0621ff755c47"
     },
     {
@@ -30,6 +31,7 @@
         ],
         "type": "Point"
       },
+      "zoom": 6,
       "id": "82050977ef1f4368b5e82d666b742f8a"
     },
     {
@@ -46,6 +48,7 @@
         ],
         "type": "Point"
       },
+      "zoom": 7,
       "id": "b4f87a97cb390b3ccd3e694d2b4c6c93"
     },
     {
@@ -61,6 +64,7 @@
         ],
         "type": "Point"
       },
+      "zoom": 5,
       "id": "d6fad047d3ae957cdba0fc81f085470d"
     },
     {
@@ -77,6 +81,7 @@
         ],
         "type": "Point"
       },
+      "zoom": 7,
       "id": "ea51c7a585e0a29aaa9ee5ef1e073997"
     }
   ],

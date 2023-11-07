@@ -70,7 +70,7 @@
                     });
                     
                     map.addLayer({
-                    'id': 'pyramids-layer',
+                    'id': 'location-layer',
                     'type': 'circle',
                     'source': 'data',
                     //this is for the map marker
@@ -94,6 +94,14 @@
                     div.setAttribute("data-step", p.id);
                     div.setAttribute("data-long", p.geometry.coordinates[0]);
                     div.setAttribute("data-lat", p.geometry.coordinates[1]);
+                    div.setAttribute("data-zoom", p.zoom)
+                    
+                    var side_img_div = document.createElement("div")
+                    side_img_div.setAttribute("class", "side_img")
+                    var side_img = document.createElement("img");
+                    side_img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1280px-Roasted_coffee_beans.jpg";
+                    side_img_div.appendChild(side_img);
+                    div.appendChild(side_img_div);
 
                     // header
                     if(p.properties.Title) {
@@ -104,15 +112,13 @@
                     }
 
                     // image
-                    if(p.properties.image) {
-                        var img = document.createElement("img");
-                        img.src = p.properties.image;
-                        div.appendChild(img);
-                    }
+                    // if(p.properties.image) {
+                    //     var img = document.createElement("img");
+                    //     img.src = p.properties.image;
+                    //     div.appendChild(img);
+                    // }
+                    
 
-                    // var side_img = document.createElement("img");
-                    // side_img.src = data/data.geojson;
-                    // side_img.setAttribute("class", "")
 
                     // description
                     if(p.properties.Description) {
@@ -126,11 +132,6 @@
                     document.getElementById("article_container").appendChild(div);
 
                 }
-
-                //TODO maybe remove for last-shild css??
-                let div = document.createElement('div');
-                div.setAttribute("class", "article-footer");
-                document.getElementById("article_container").appendChild(div);
 
                 // using d3 for convenience
                 var main = d3.select("main");
@@ -161,9 +162,10 @@
 
                 // scrollama event handlers
                 function handleStepEnter(response) {
+                    console.log(response)
                     map.flyTo({
                         center: [response.element.dataset.long, response.element.dataset.lat],
-                        zoom: 9,
+                        zoom: response.element.dataset.zoom,
                         offset: [100,0],
                         essential: true // this animation is considered essential with respect to prefers-reduced-motion
                     });
@@ -189,7 +191,7 @@
                     scroller
                         .setup({
                             step: "#scrolly article .step",
-                            offset: 0.33,
+                            offset: 0.7,
                             debug: false
                         })
                         .onStepEnter(handleStepEnter);
