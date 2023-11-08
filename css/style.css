@@ -149,6 +149,8 @@ figure {
   margin-right: -22vw;
   margin-top: -1em;
   padding: 1em 1.5em;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .step.is-active .side_img {

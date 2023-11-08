@@ -50,12 +50,37 @@ async function loadData() {
         div.setAttribute("data-lat", p.geometry.coordinates[1]);
         div.setAttribute("data-zoom", p.zoom)
         
-        var side_img_div = document.createElement("div")
-        side_img_div.setAttribute("class", "side_img")
-        var side_img = document.createElement("img");
-        side_img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1280px-Roasted_coffee_beans.jpg";
-        side_img_div.appendChild(side_img);
-        div.appendChild(side_img_div);
+        var side_chart_div = document.createElement("div");
+        side_chart_div.setAttribute("class", "side_img");
+        var chart = document.createElement("canvas");
+        new Chart(chart, {
+            type: 'radar',
+            data: {
+              labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
+              datasets: [{
+                data: [p.acidity, p.body, p.fruit, p.nutty, p.chocolate, p.spice],
+                borderWidth: 1
+              }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                      display: false
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: false
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            }
+        });
+        side_chart_div.appendChild(chart);
+        div.appendChild(side_chart_div);
 
         // header
         if(p.properties.Title) {
@@ -64,15 +89,6 @@ async function loadData() {
             header.appendChild(node);
             div.appendChild(header);
         }
-
-        // image
-        // if(p.properties.image) {
-        //     var img = document.createElement("img");
-        //     img.src = p.properties.image;
-        //     div.appendChild(img);
-        // }
-        
-
 
         // description
         if(p.properties.Description) {
@@ -120,7 +136,7 @@ async function loadData() {
         map.flyTo({
             center: [response.element.dataset.long, response.element.dataset.lat],
             zoom: response.element.dataset.zoom,
-            offset: [100,0],
+            offset: [50,0],
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
         });
 

@@ -14,7 +14,13 @@
         "type": "Point"
       },
       "zoom": 5,
-      "id": "708a88686a9b2672e7df0621ff755c47"
+      "id": "708a88686a9b2672e7df0621ff755c47",
+      "acidity": 7,
+      "body": 8,
+      "fruit": 9,
+      "nutty": 1,
+      "chocolate": 4,
+      "spice": 8
     },
     {
       "type": "Feature",
@@ -30,7 +36,13 @@
         "type": "Point"
       },
       "zoom": 6,
-      "id": "82050977ef1f4368b5e82d666b742f8a"
+      "id": "82050977ef1f4368b5e82d666b742f8a",
+      "acidity": 2,
+      "body": 9,
+      "fruit": 5,
+      "nutty": 7,
+      "chocolate": 9,
+      "spice": 1
     },
     {
       "type": "Feature",
@@ -46,7 +58,13 @@
         "type": "Point"
       },
       "zoom": 7,
-      "id": "b4f87a97cb390b3ccd3e694d2b4c6c93"
+      "id": "b4f87a97cb390b3ccd3e694d2b4c6c93",
+      "acidity": 3,
+      "body": 5,
+      "fruit": 7,
+      "nutty": 5,
+      "chocolate": 7,
+      "spice": 1
     },
     {
       "type": "Feature",
@@ -62,7 +80,13 @@
         "type": "Point"
       },
       "zoom": 5,
-      "id": "d6fad047d3ae957cdba0fc81f085470d"
+      "id": "d6fad047d3ae957cdba0fc81f085470d",
+      "acidity": 3,
+      "body": 6,
+      "fruit": 2,
+      "nutty": 8,
+      "chocolate": 8,
+      "spice": 3
     },
     {
       "type": "Feature",
@@ -78,7 +102,13 @@
         "type": "Point"
       },
       "zoom": 7,
-      "id": "ea51c7a585e0a29aaa9ee5ef1e073997"
+      "id": "ea51c7a585e0a29aaa9ee5ef1e073997",
+      "acidity": 6,
+      "body": 5,
+      "fruit": 6,
+      "nutty": 3,
+      "chocolate": 5,
+      "spice": 1
     }
   ],
   "type": "FeatureCollection"
