@@ -3,9 +3,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Title": "Ethopia",
-        "Description": "<p> talk about legend of coffee discovery</p>",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1280px-Roasted_coffee_beans.jpg"
+        "Title": "Ethiopia",
+        "Description": "<p>According to legend, coffee was discovered by an Ethiopian goat herder over a thousand years ago when he noticed his goats acting more lively. By the 16th century, coffee had made its way to the Middle East, and by the 17th century, Europe. Ethiopian coffe is known for its high quality and diverse flavors.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -21,8 +20,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Sumatra",
-        "Description": "<p>Dark, earthy</p>",
-        "image": ""
+        "Description": "<p>One of over 18,000 islands in Indonesia, the island of Sumatra is know for its dark, earthy coffee. Sumatran coffee is generally processed with the faster wet-hulled method, resulting in its distinctive flavor.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -38,8 +36,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Hawaii",
-        "Description": "<p>Talk about Kona coffee</p>",
-        "image": ""
+        "Description": "<p>Hawaiian coffee is best known for Kona coffee grown on the western volcanic slopes of the Big Island. The unique mineral-rich soil and extra labor in harvesting means that Kona coffee can cost 4-5 times as much as other beans.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -55,7 +52,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Brazil",
-        "Description": "<p>Low acidity, sweet, nutty. Largest producer of coffee</p>"
+        "Description": "<p>Brazil is the world's largest producer of coffee, accounting for close to 40% of the global volume. Brazilian coffee has nutty flavors and works well for espressos.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -71,8 +68,7 @@
       "type": "Feature",
       "properties": {
         "Title": "Costa Rica",
-        "Description": "<p>Clean, bright, well-balanced coffee</p>",
-        "image": ""
+        "Description": "<p>Costa Rica is known for clean, bright, well-balanced coffee</p>"
       },
       "geometry": {
         "coordinates": [
