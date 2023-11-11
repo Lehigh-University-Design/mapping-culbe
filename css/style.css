@@ -7,7 +7,7 @@
 }
 
 @keyframes slide-in {
-  from {margin-right: -20vw;}
+  from {margin-right: -15vw;}
   to {margin-right: 0vw;}
 }
 
@@ -116,7 +116,7 @@ figure {
   width: 20vw;
   border-radius: 10px 10px 0 0;
   padding: 0.5em 0.8em;
-  margin-left: 2.4em;
+  margin-left: 3.2em;
   font-size: 1.25em;
   background-color: #fff;
   color: var(--coffee-brown);
@@ -134,7 +134,7 @@ figure {
   width: 20vw;
   border-radius: 0 0 10px 10px;
   /* height: 50vh; */
-  margin-left: 3em;
+  margin-left: 4em;
   padding: 1em;
   font-size: 1em;
 }
@@ -142,14 +142,15 @@ figure {
 .step .side_img {
   position: -webkit-sticky;
   position: sticky;
+  text-align: center;
   top: 0;
   z-index: 12;
-  width: 20vw;
+  width: 15vw;
   float: right;
-  margin-right: -22vw;
-  margin-top: -1em;
+  margin-right: -17vw;
+  margin-top: 1em;
   padding: 1em 1.5em;
-  background-color: #fff;
+  background-color: #fffb;
   border-radius: 10px;
 }
 

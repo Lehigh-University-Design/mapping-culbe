@@ -24,15 +24,17 @@ async function loadData() {
         });
         
         map.addLayer({
-        'id': 'location-layer',
+        'id': 'coffee-region',
         'type': 'circle',
         'source': 'data',
-        //this is for the map marker
+        'layout': {
+            'visibility': 'none',
+        },
         'paint': {
-        'circle-radius': 3,
-        'circle-stroke-width': 1,
-        'circle-color': 'black',
-        'circle-stroke-color': 'black'
+            'circle-radius': 40,
+            // 'circle-stroke-width': 1,
+            'circle-color': 'rgba(0,0,0,0.2)'
+            // 'circle-stroke-color': 'black'
         }
         });
     });
@@ -52,6 +54,7 @@ async function loadData() {
         
         var side_chart_div = document.createElement("div");
         side_chart_div.setAttribute("class", "side_img");
+        side_chart_div.innerHTML += "Flavor Profile";
         var chart = document.createElement("canvas");
         new Chart(chart, {
             type: 'radar',
@@ -59,7 +62,10 @@ async function loadData() {
               labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
               datasets: [{
                 data: [p.acidity, p.body, p.fruit, p.nutty, p.chocolate, p.spice],
-                borderWidth: 1
+                borderWidth: 2,
+                borderColor: 'rgb(3,71,30)',
+                backgroundColor: 'rgb(3,71,30,0.6)'
+
               }]
             },
             options: {
@@ -70,9 +76,13 @@ async function loadData() {
                 },
                 scales: {
                     r: {
-                        angleLines: {
-                            display: false
+                        pointLabels: {
+                            color: 'black'
                         },
+                        ticks: {
+                            display: false,
+                        },
+                        backgroundColor: 'rgba(255,255,255,0.3)',
                         suggestedMin: 0,
                         suggestedMax: 10
                     }
@@ -139,6 +149,8 @@ async function loadData() {
             offset: [50,0],
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
         });
+
+        map.setLayoutProperty('coffee-region', 'visibility', 'visible')
 
         // add color to current step only
         step.classed("is-active", function (d, i) {
