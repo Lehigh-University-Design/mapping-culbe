@@ -6,6 +6,11 @@
   display: none;
 }
 
+@keyframes fade-in {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
 @keyframes slide-in {
   from {margin-right: -15vw;}
   to {margin-right: 0vw;}
@@ -59,7 +64,7 @@ a:hover {
   }
 
 #outro {
-  height: 240px;
+  height: 110vw;
 }
 
 #scrolly {
@@ -72,6 +77,7 @@ article {
   position: relative;
   width: 100vw;
   margin: 0 0;
+  display: grid;
 }
 
 figure {
@@ -96,15 +102,21 @@ figure {
 }
 
 .step {
-  margin: 0 0 30vh 0;
-  height: 80vh;
-  /* width: 40vw; */
-  /* color: #fff; */
-  /* background-color: rgb(255, 255, 255); */
+  margin: 30vh 0;
+  max-height: 50vh;
 }
 
+.step:first-child {
+  margin: 0;
+  background-color: rgb(255, 0, 255, 0.5);
+  max-height: 30px;
+}
+
+
 .step:last-child {
-  margin-bottom: 0;
+  margin: 0;
+  background-color: rgb(255, 0, 255, 0.5);
+  max-height: 30px;
 }
 
 .step.is-active h2 {
@@ -122,41 +134,32 @@ figure {
   color: var(--coffee-brown);
 }
 
-.step img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .step .description {
   color: #000000;
   background-color: #fffb;
   width: 20vw;
   border-radius: 0 0 10px 10px;
-  /* height: 50vh; */
   margin-left: 4em;
   padding: 1em;
   font-size: 1em;
 }
 
 .step .side_img {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   text-align: center;
   top: 0;
+  right: 0;
   z-index: 12;
-  width: 15vw;
-  float: right;
-  margin-right: -17vw;
-  margin-top: 1em;
-  padding: 1em 1.5em;
-  background-color: #fffb;
-  border-radius: 10px;
+  width: 13vw;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  opacity: 0;
 }
 
 .step.is-active .side_img {
-  animation: slide-in 2s forwards;
-  /* animation-duration: 2s; */
+  /* animation: slide-in 2s forwards; */
+  /* animation: fade-in 2s forwards; */
+  opacity: 1;
 }
 
 .step .description p {

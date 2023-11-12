@@ -32,14 +32,18 @@ async function loadData() {
         },
         'paint': {
             'circle-radius': 40,
-            // 'circle-stroke-width': 1,
             'circle-color': 'rgba(0,0,0,0.2)'
-            // 'circle-stroke-color': 'black'
         }
         });
     });
 
     map.scrollZoom.disable();
+
+    //first and last steps are used to make the side charts disappear because their step will not be active
+    let first_step = document.createElement('div');
+    first_step.setAttribute("class", "step");
+    first_step.setAttribute("id", "dummyID");
+    document.getElementById("article_container").appendChild(first_step);
 
     for (const item in data.features) {
         const p = data.features[item];
@@ -64,7 +68,10 @@ async function loadData() {
                 data: [p.acidity, p.body, p.fruit, p.nutty, p.chocolate, p.spice],
                 borderWidth: 2,
                 borderColor: 'rgb(3,71,30)',
-                backgroundColor: 'rgb(3,71,30,0.6)'
+                backgroundColor: 'rgb(3,71,30,0.6)',
+                pointRadius: 2,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
 
               }]
             },
@@ -113,6 +120,11 @@ async function loadData() {
 
     }
 
+    let last_step = document.createElement('div');
+    last_step.setAttribute("class", "step");
+    document.getElementById("article_container").appendChild(last_step);
+
+
     // using d3 for convenience
     var main = d3.select("main");
     var scrolly = main.select("#scrolly");
@@ -142,25 +154,30 @@ async function loadData() {
 
     // scrollama event handlers
     function handleStepEnter(response) {
-        console.log(response)
-        map.flyTo({
-            center: [response.element.dataset.long, response.element.dataset.lat],
-            zoom: response.element.dataset.zoom,
-            offset: [50,0],
-            essential: true // this animation is considered essential with respect to prefers-reduced-motion
-        });
-
-        map.setLayoutProperty('coffee-region', 'visibility', 'visible')
+        // console.log(response)
 
         // add color to current step only
         step.classed("is-active", function (d, i) {
             return i === response.index;
         });
 
-        // update graphic based on step
-        figure.select("p.ind").text(response.index);
-    }
+        if(response.element.dataset.long){ //not header/footer step
 
+            map.flyTo({
+                center: [response.element.dataset.long, response.element.dataset.lat],
+                zoom: response.element.dataset.zoom,
+                offset: [50,0],
+                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+            });
+            
+            map.setLayoutProperty('coffee-region', 'visibility', 'visible')
+            
+            
+            // update graphic based on step
+            figure.select("p.ind").text(response.index);
+        }
+    }
+        
 
     function init() {
 
