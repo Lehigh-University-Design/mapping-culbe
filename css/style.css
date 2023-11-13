@@ -64,7 +64,12 @@ a:hover {
   }
 
 #outro {
-  height: 20vw;
+  margin-top: 10vw;
+  height: 80vw;
+}
+
+#radar_chart {
+  margin: auto
 }
 
 #scrolly {

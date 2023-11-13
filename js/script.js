@@ -124,6 +124,84 @@ async function loadData() {
     last_step.setAttribute("class", "step");
     document.getElementById("article_container").appendChild(last_step);
 
+    var chart = document.createElement("canvas");
+    chart.setAttribute("id", "radar_chart")
+    new Chart(chart, {
+        type: 'radar',
+        data: {
+            labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
+            datasets: [
+                {label: 'Ethiopia',
+                data: [data.features[0].acidity, data.features[0].body, data.features[0].fruit, data.features[0].nutty, data.features[0].chocolate, data.features[0].spice],
+                borderWidth: 2,
+                borderColor: 'rgb(3,71,30)',
+                backgroundColor: 'rgb(3,71,30,0.6)',
+                pointRadius: 3,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                },
+                {label: 'Sumatra',
+                data: [data.features[1].acidity, data.features[1].body, data.features[1].fruit, data.features[1].nutty, data.features[1].chocolate, data.features[1].spice],
+                borderWidth: 2,
+                borderColor: 'rgb(140,30,3)',
+                backgroundColor: 'rgb(140,30,3,0.6)',
+                pointRadius: 3,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                },
+                {label: 'Hawaii',
+                data: [data.features[2].acidity, data.features[2].body, data.features[2].fruit, data.features[2].nutty, data.features[2].chocolate, data.features[2].spice],
+                borderWidth: 2,
+                borderColor: 'rgb(191,167,10)',
+                backgroundColor: 'rgb(191,167,10,0.6)',
+                pointRadius: 4,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                },                
+                {label: 'Brazil',
+                data: [data.features[3].acidity, data.features[3].body, data.features[3].fruit, data.features[3].nutty, data.features[3].chocolate, data.features[3].spice],
+                borderWidth: 2,
+                borderColor: 'rgb(102, 7, 166)',
+                backgroundColor: 'rgb(102, 7, 166,0.6)',
+                pointRadius: 4,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                },                
+                {label: 'Costa Rica',
+                data: [data.features[4].acidity, data.features[4].body, data.features[4].fruit, data.features[4].nutty, data.features[4].chocolate, data.features[4].spice],
+                borderWidth: 2,
+                borderColor: 'rgb(3,30, 140)',
+                backgroundColor: 'rgb(3,30,140,0.6)',
+                pointRadius: 4,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                },                
+        
+            ]
+        },
+        options: {
+            // plugins: {
+            //     legend: {
+            //         display: false
+            //     }
+            // },
+            scales: {
+                r: {
+                    pointLabels: {
+                        color: 'black'
+                    },
+                    ticks: {
+                        display: false,
+                    },
+                    backgroundColor: 'rgba(255,255,255,0.3)',
+                    suggestedMin: 0,
+                    suggestedMax: 10
+                }
+            }
+        }
+    });
+    document.getElementById("outro").appendChild(chart);
+
 
     // using d3 for convenience
     var main = d3.select("main");

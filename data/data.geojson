@@ -86,13 +86,15 @@
       "fruit": 2,
       "nutty": 8,
       "chocolate": 8,
-      "spice": 3
+      "spice": 3,
+      "color": "rgb(102, 7, 166)",
+      "colorAlpha": "rgb(102, 7, 166,0.6)"
     },
     {
       "type": "Feature",
       "properties": {
         "Title": "Costa Rica",
-        "Description": "<p>Central America, mainly Guatemalla, Nicaragua and Costa Rica, is a large coffee producing region that produces generally milder beans. Costa Rica in particualar is known for clean, bright, well-balanced coffee</p>"
+        "Description": "<p>Central America, mainly Guatemalla, Nicaragua and Costa Rica, is a large coffee producing region that produces generally milder beans. Costa Rica in particular is known for clean, bright, well-balanced coffee</p>"
       },
       "geometry": {
         "coordinates": [
