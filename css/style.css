@@ -64,12 +64,16 @@ a:hover {
   }
 
 #outro {
-  margin-top: 10vw;
-  height: 80vw;
+  text-align: center;
+  margin: 5vh auto;
+  /* height: 80vh; */
+  width: 50vw;
 }
 
 #radar_chart {
-  margin: auto
+  margin: 5vh auto;
+  /* height: 50vh; */
+  /* width: 50vw; */
 }
 
 #scrolly {
