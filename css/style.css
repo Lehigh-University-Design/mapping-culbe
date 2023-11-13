@@ -115,17 +115,15 @@ figure {
   max-height: 50vh;
 }
 
-.step:first-child {
-  margin: 0;
-  /* background-color: rgb(255, 0, 255, 0.5); */
-  max-height: 30px; /* large enough to not get skipped */
-}
+/* .step:first-child .description{
+  padding: 0 1em 1em 1em;
+} */
 
 
 .step:last-child {
   margin: 0;
   /* background-color: rgb(255, 0, 255, 0.5); */
-  max-height: 40px;
+  max-height: 25vh;
 }
 
 .step.is-active h2 {
@@ -150,6 +148,16 @@ figure {
   border-radius: 0 0 10px 10px;
   margin-left: 4em;
   padding: 1em;
+  font-size: 1em;
+}
+
+.step img {
+  margin-bottom: -0.5em;
+  background-color: #fffb;
+  width: -webkit-calc(20vw + 2em);
+  width:    -moz-calc(20vw + 2em);
+  width:         calc(20vw + 2em);
+  margin-left: 4em;
   font-size: 1em;
 }
 

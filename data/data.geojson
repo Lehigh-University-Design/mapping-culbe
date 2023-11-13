@@ -3,6 +3,23 @@
     {
       "type": "Feature",
       "properties": {
+        "Title": "The coffee belt",
+        "Description": "<p>Although coffee is enjoyed by people all over the globe, only a few regions are suitable for growing beans. Coffee plants require warm, rainy conditions, and produce better beans at high altitudes. This band of ideal areas is known as the coffee belt.</p>"
+      },
+      "geometry": {
+        "coordinates": [
+          31.134799, 
+          29.975990
+        ],
+        "type": "Point"
+      },
+      "zoom": 2,
+      "id": "intro_step",
+      "img": "images/coffee-belt.jpg"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "Title": "Ethiopia",
         "Description": "<p>According to legend, coffee was discovered by an Ethiopian goat herder over a thousand years ago when he noticed his goats acting more lively. By the 16th century, coffee had made its way to the Middle East, and by the 17th century, Europe. Ethiopian coffe is known for its high quality and diverse flavors.</p>"
       },

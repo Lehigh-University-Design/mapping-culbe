@@ -12,6 +12,7 @@ async function loadData() {
         style: 'mapbox://styles/culbe/clod8blvw000401pd6tlsfcxt', // style URL
         interactive: false,
         center: [31.134799, 29.975990], // starting position [lng, lat]
+        offset: [50,0],
         zoom: 2, // starting zoom
         bearing: 0,
         pitch: 0
@@ -35,15 +36,23 @@ async function loadData() {
             'circle-color': 'rgba(0,0,0,0.2)'
         }
         });
+        map.flyTo({ //to prevent small shift on intro
+            center: [31.134799, 29.975990],
+            zoom: 2,
+            offset: [50,0],
+            essential: true
+        });    
     });
 
-    map.scrollZoom.disable();
+    map.scrollZoom.disable();   
 
     //first and last steps are used to make the side charts disappear because their step will not be active
-    let first_step = document.createElement('div');
-    first_step.setAttribute("class", "step");
-    first_step.setAttribute("id", "dummyID");
-    document.getElementById("article_container").appendChild(first_step);
+    // let first_step = document.createElement('div');
+    // first_step.setAttribute("class", "step");
+    // first_step.setAttribute("id", "dummyID");
+    // document.getElementById("article_container").appendChild(first_step);
+
+    first_iter = true;
 
     for (const item in data.features) {
         const p = data.features[item];
@@ -56,29 +65,32 @@ async function loadData() {
         div.setAttribute("data-lat", p.geometry.coordinates[1]);
         div.setAttribute("data-zoom", p.zoom)
         
-        var side_chart_div = document.createElement("div");
-        side_chart_div.setAttribute("class", "side_img");
-        side_chart_div.innerHTML += "Flavor Profile";
-        var chart = document.createElement("canvas");
-        new Chart(chart, {
-            type: 'radar',
-            data: {
-              labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
-              datasets: [{
-                data: [p.acidity, p.body, p.fruit, p.nutty, p.chocolate, p.spice],
-                borderWidth: 2,
-                borderColor: p.color + ')',
-                backgroundColor: p.color + ',0.6)',
-                pointRadius: 2,
-                pointBorderWidth: 0, 
-                pointBackgroundColor: 'rgb(0,0,0)'
-
-              }]
+        if(first_iter){
+            first_iter = false;
+        }else{
+            var side_chart_div = document.createElement("div");
+            side_chart_div.setAttribute("class", "side_img");
+            side_chart_div.innerHTML += "Flavor Profile";
+            var chart = document.createElement("canvas");
+            new Chart(chart, {
+                type: 'radar',
+                data: {
+                labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
+                datasets: [{
+                    data: [p.acidity, p.body, p.fruit, p.nutty, p.chocolate, p.spice],
+                    borderWidth: 2,
+                    borderColor: p.color + ')',
+                    backgroundColor: p.color + ',0.6)',
+                    pointRadius: 2,
+                    pointBorderWidth: 0, 
+                    pointBackgroundColor: 'rgb(0,0,0)'
+                    
+                }]
             },
             options: {
                 plugins: {
                     legend: {
-                      display: false
+                        display: false
                     }
                 },
                 scales: {
@@ -91,14 +103,15 @@ async function loadData() {
                         },
                         backgroundColor: 'rgba(255,255,255,0.3)',
                         suggestedMin: 0,
-                        suggestedMax: 10
+                            suggestedMax: 10
+                        }
                     }
                 }
-            }
-        });
-        side_chart_div.appendChild(chart);
-        div.appendChild(side_chart_div);
-
+            });
+            side_chart_div.appendChild(chart);
+            div.appendChild(side_chart_div);
+        }
+        
         // header
         if(p.properties.Title) {
             var header = document.createElement("h2");
@@ -107,6 +120,12 @@ async function loadData() {
             div.appendChild(header);
         }
 
+        if(p.img){
+            var img = document.createElement("img")
+            img.src = p.img
+            div.appendChild(img)
+        }
+        
         // description
         if(p.properties.Description) {
             var description = document.createElement("div");
@@ -116,6 +135,7 @@ async function loadData() {
             div.appendChild(description);
         }
 
+        
         document.getElementById("article_container").appendChild(div);
 
     }
@@ -132,15 +152,6 @@ async function loadData() {
             labels: ['Acidity', 'Body', 'Fruity', 'Nutty', 'Chocolate', 'Spice'],
             datasets: [
                 {label: 'Ethiopia',
-                data: [data.features[0].acidity, data.features[0].body, data.features[0].fruit, data.features[0].nutty, data.features[0].chocolate, data.features[0].spice],
-                borderWidth: 2,
-                borderColor: data.features[0].color + ')',
-                backgroundColor: data.features[0].color + ',0.6)',
-                pointRadius: 4,
-                pointBorderWidth: 0, 
-                pointBackgroundColor: 'rgb(0,0,0)'
-                },
-                {label: 'Sumatra',
                 data: [data.features[1].acidity, data.features[1].body, data.features[1].fruit, data.features[1].nutty, data.features[1].chocolate, data.features[1].spice],
                 borderWidth: 2,
                 borderColor: data.features[1].color + ')',
@@ -149,7 +160,7 @@ async function loadData() {
                 pointBorderWidth: 0, 
                 pointBackgroundColor: 'rgb(0,0,0)'
                 },
-                {label: 'Hawaii',
+                {label: 'Sumatra',
                 data: [data.features[2].acidity, data.features[2].body, data.features[2].fruit, data.features[2].nutty, data.features[2].chocolate, data.features[2].spice],
                 borderWidth: 2,
                 borderColor: data.features[2].color + ')',
@@ -158,7 +169,7 @@ async function loadData() {
                 pointBorderWidth: 0, 
                 pointBackgroundColor: 'rgb(0,0,0)'
                 },                
-                {label: 'Brazil',
+                {label: 'Hawaii',
                 data: [data.features[3].acidity, data.features[3].body, data.features[3].fruit, data.features[3].nutty, data.features[3].chocolate, data.features[3].spice],
                 borderWidth: 2,
                 borderColor: data.features[3].color + ')',
@@ -167,7 +178,7 @@ async function loadData() {
                 pointBorderWidth: 0, 
                 pointBackgroundColor: 'rgb(0,0,0)'
                 },                
-                {label: 'Costa Rica',
+                {label: 'Brazil',
                 data: [data.features[4].acidity, data.features[4].body, data.features[4].fruit, data.features[4].nutty, data.features[4].chocolate, data.features[4].spice],
                 borderWidth: 2,
                 borderColor: data.features[4].color + ')',
@@ -176,6 +187,15 @@ async function loadData() {
                 pointBorderWidth: 0, 
                 pointBackgroundColor: 'rgb(0,0,0)'
                 },                
+                {label: 'Costa Rica',
+                data: [data.features[5].acidity, data.features[5].body, data.features[5].fruit, data.features[5].nutty, data.features[5].chocolate, data.features[5].spice],
+                borderWidth: 2,
+                borderColor: data.features[5].color + ')',
+                backgroundColor: data.features[5].color + ',0.6)',
+                pointRadius: 4,
+                pointBorderWidth: 0, 
+                pointBackgroundColor: 'rgb(0,0,0)'
+                }                
         
             ]
         },
@@ -227,7 +247,7 @@ async function loadData() {
 
     // scrollama event handlers
     function handleStepEnter(response) {
-        // console.log(response)
+        console.log(response)
 
         // add color to current step only
         step.classed("is-active", function (d, i) {
@@ -241,13 +261,16 @@ async function loadData() {
                 zoom: response.element.dataset.zoom,
                 offset: [50,0],
                 essential: true // this animation is considered essential with respect to prefers-reduced-motion
-            });
-            
-            map.setLayoutProperty('coffee-region', 'visibility', 'visible')
-            
+            });            
             
             // update graphic based on step
             figure.select("p.ind").text(response.index);
+        }
+
+        if(response.element.id == "intro_step"){
+            map.setLayoutProperty('coffee-region', 'visibility', 'none')
+        }else{
+            map.setLayoutProperty('coffee-region', 'visibility', 'visible')
         }
     }
         
