@@ -20,7 +20,8 @@
       "fruit": 9,
       "nutty": 1,
       "chocolate": 4,
-      "spice": 8
+      "spice": 8,
+      "color": "rgb(3,71,30"
     },
     {
       "type": "Feature",
@@ -42,7 +43,8 @@
       "fruit": 5,
       "nutty": 7,
       "chocolate": 9,
-      "spice": 1
+      "spice": 1,
+      "color": "rgb(180,5,3"
     },
     {
       "type": "Feature",
@@ -64,7 +66,8 @@
       "fruit": 7,
       "nutty": 5,
       "chocolate": 7,
-      "spice": 1
+      "spice": 1,
+      "color": "rgb(191,167,10"
     },
     {
       "type": "Feature",
@@ -87,8 +90,7 @@
       "nutty": 8,
       "chocolate": 8,
       "spice": 3,
-      "color": "rgb(102, 7, 166)",
-      "colorAlpha": "rgb(102, 7, 166,0.6)"
+      "color": "rgb(102, 7, 166"
     },
     {
       "type": "Feature",
@@ -110,7 +112,8 @@
       "fruit": 6,
       "nutty": 3,
       "chocolate": 5,
-      "spice": 1
+      "spice": 1,
+      "color": "rgb(3,50, 140"
     }
   ],
   "type": "FeatureCollection"
