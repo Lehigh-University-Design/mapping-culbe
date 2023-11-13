@@ -64,13 +64,13 @@ a:hover {
   }
 
 #outro {
-  height: 110vw;
+  height: 20vw;
 }
 
 #scrolly {
   position: relative;
   background-color: #f3f3f3;
-  /*padding: 1rem;*/
+  /*padding: 1rem; Probably need margin or padding*/
 }
 
 article {
@@ -108,14 +108,14 @@ figure {
 
 .step:first-child {
   margin: 0;
-  background-color: rgb(255, 0, 255, 0.5);
-  max-height: 30px;
+  /* background-color: rgb(255, 0, 255, 0.5); */
+  max-height: 30px; /* large enough to not get skipped */
 }
 
 
 .step:last-child {
   margin: 0;
-  background-color: rgb(255, 0, 255, 0.5);
+  /* background-color: rgb(255, 0, 255, 0.5); */
   max-height: 30px;
 }
 
