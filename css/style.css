@@ -125,7 +125,7 @@ figure {
 .step:last-child {
   margin: 0;
   /* background-color: rgb(255, 0, 255, 0.5); */
-  max-height: 30px;
+  max-height: 40px;
 }
 
 .step.is-active h2 {
